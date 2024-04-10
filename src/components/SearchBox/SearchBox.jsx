@@ -1,12 +1,12 @@
 import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilter, getFilters } from "../../redux/filtersSlice";
+import { setFilter, selectFilters } from "../../redux/filtersSlice";
 import css from "./SearchBox.module.css";
 
 export default function SearchBox() {
   const nameId = nanoid();
   const dispatch = useDispatch();
-  const searchValue = useSelector(getFilters);
+  const searchValue = useSelector(selectFilters);
 
   const changeInput = (e) => {
     dispatch(setFilter(e.target.value.trim()));
